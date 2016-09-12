@@ -1,5 +1,4 @@
-// use commonjs for now
-let $ = require( 'jquery' );
+import $ from 'jquery';
 
 module.exports = function plugit( pluginName, pluginClass ) {
 	let dataName = `plugin_${pluginName}`;
