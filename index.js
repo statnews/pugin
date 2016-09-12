@@ -1,7 +1,7 @@
 // use commonjs for now
 let $ = require( 'jquery' );
 
-export default function plugit( pluginName, pluginClass ) {
+module.exports = function plugit( pluginName, pluginClass ) {
 	let dataName = `plugin_${pluginName}`;
 
 	$.fn[pluginName] = function( options ) {
