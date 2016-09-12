@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-module.exports = function plugit( pluginName, pluginClass ) {
+export default function plugit( pluginName, pluginClass ) {
 	let dataName = `plugin_${pluginName}`;
 
 	$.fn[pluginName] = function( options ) {
