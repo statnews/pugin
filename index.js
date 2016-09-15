@@ -7,7 +7,10 @@ export default function plugit( pluginName, pluginClass ) {
 		return this.each( function() {
 			let $this = $( this );
 			let data = $this.data( dataName );
-			let options = $.extend( {}, this._defaults, opts );
+			let options = {
+				...this._defaults, 
+				...opts
+			};
 
 			pluginClass.element = this;
 			pluginClass.$element = $this;
