@@ -5,18 +5,19 @@ export default function plugit( pluginName, pluginClass ) {
 
 	$.fn[pluginName] = function( opts ) {
 		return this.each( function() {
-			let $this = $( this );
-			let data = $this.data( dataName );
+
+			let element = this,
+				$element = $( element );
+
+			let data = $element.data( dataName );
+
 			let options = {
-				...this._defaults, 
+				...pluginClass._defaults,
 				...opts
 			};
 
-			pluginClass.element = this;
-			pluginClass.$element = $this;
-
 			if ( ! data ) {
-				$this.data( dataName, ( data = new pluginClass( this, options ) ) );
+				$element.data( dataName, ( data = new pluginClass( { element, $element }, { options } ) ) );
 			}
 		} );
 	};
