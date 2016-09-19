@@ -13,6 +13,7 @@ The `pugin` function takes a `pluginName` and `pluginClass` argument, the first 
 This function then merges the properties of any object passed as an argument into any properties of a `_defaults` property existing on the `pluginClass`, resulting in a merged `options` object. It also creates a reference to the original DOM element, as well as a cached jQuery object referring to that element, as properties on an object (`element` and `$element`, respectively). Then, these are associated with the `$.data` function with that DOM element (if there is not already data associated with this plugin on that element) with the `pluginName` provided, and the value being the first instantiation of the `pluginClass` with these two objects passed as arguments. Given that two objects are passed, one with the `element` references and the other with the options, we can expect a default jQuery plugin that uses `pugin` to look like the following.
 
 ```javascript
+import $ from 'jquery';
 import pugin from 'pugin';
 
 class MyPlugin {
