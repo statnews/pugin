@@ -4,9 +4,7 @@ jQuery p(l)ugin abstraction
 
 ![big ben](big-ben.png)
 
-Pugin is a small ES6 plugin wrapper for and depending on jQuery.
-
-<sup>**NOTE**: This means you must be using babel, webpack, browserify, etc. to consume this module. Use in production at your own risk.</sup>
+Pugin is a small plugin wrapper for and depending on jQuery to allow plugins to be written as classes with some default functionality.
 
 `npm install statnews/pugin --save`
 
@@ -18,9 +16,9 @@ This function then merges the properties of any object passed as an argument int
 import pugin from 'pugin';
 
 class MyPlugin {
-  constructor(el_refs, options) {
+  constructor(references, options) {
     // Here you can attach the options and el_refs to the class
-    Object.assign(this, {...el_refs}, {...options});
+    $.extend(this, references, options);
     
     // All of these props are now available on the class:
     this.element;
@@ -46,5 +44,9 @@ import 'my-plugin'; // attaches to $ automatically
 
 $('.foo').myPlugin({ color: 'blue' });
 ```
+
+Development:
+
+`npm install && npm start`
 
 <sub>Icons made by [Freepik](http://www.flaticon.com/authors/freepik) from [www.flaticon.com](www.flaticon.com) is licensed by [CC 3.0](http://creativecommons.org/licenses/by/3.0/)</sub>

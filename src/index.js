@@ -11,10 +11,11 @@ export default function plugit( pluginName, pluginClass ) {
 
 			let data = $element.data( dataName );
 
-			let options = {
-				...pluginClass._defaults,
-				...opts
-			};
+			let options = $.extend(
+				{},
+				pluginClass._defaults,
+				opts
+			);
 
 			if ( ! data ) {
 				$element.data( dataName, ( data = new pluginClass( { element, $element }, { options } ) ) );
